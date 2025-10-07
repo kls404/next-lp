@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import ScrollAnimation from './ScrollAnimation';
 
 const stadiumsData = [
   {
@@ -49,7 +50,7 @@ const stadiumsData = [
 const StadiumSection = () => {
   return (
     <section id="stadion" className="py-12 md:py-16">
-      <div className="text-center text-white animate-scroll">
+      <ScrollAnimation className="text-center text-white">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Stadion Piala Dunia 2026</h2>
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 text-gray-300">
           Direktori komprehensif stadion-stadion megah yang akan menjadi panggung utama Piala Dunia 2026.
@@ -71,7 +72,7 @@ const StadiumSection = () => {
             </div>
           ))}
         </div>
-      </div>
+      </ScrollAnimation>
     </section>
   );
 };

@@ -29,16 +29,18 @@ body {
 }
 
 /* Animasi Kustom untuk Scroll */
-.animate-scroll {
+@media (min-width: 768px) {
+  .animate-scroll {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
     transition-delay: var(--delay, 0s);
-}
+  }
 
-.animate-scroll-visible {
+  .animate-scroll-visible {
     opacity: 1;
     transform: translateY(0);
+  }
 }
 
 /* New Aurora Hero Section Styles */

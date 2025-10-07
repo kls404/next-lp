@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import Script from 'next/script';
+import ScrollAnimation from './ScrollAnimation';
 
 // Define the type for a single FAQ item
 interface FaqDataItem {
@@ -25,6 +27,21 @@ const faqData: FaqDataItem[] = [
     answer: 'Pertandingan final direncanakan akan diadakan pada 19 Juli 2026 di MetLife Stadium, New Jersey, Amerika Serikat.',
     delay: '300ms',
   },
+  {
+    question: 'Bagaimana format baru dengan 48 tim bekerja?',
+    answer: 'Tim akan dibagi menjadi 12 grup yang masing-masing berisi empat tim. Dua tim teratas dari setiap grup, ditambah delapan tim peringkat ketiga terbaik, akan maju ke babak knockout baru yaitu Babak 32.',
+    delay: '400ms',
+  },
+  {
+    question: 'Bagaimana cara mendapatkan tiket Piala Dunia 2026?',
+    answer: 'Informasi tiket akan tersedia di situs web resmi FIFA. Penggemar dapat mendaftar untuk mendapatkan pembaruan tentang penjualan tiket. Penjualan kemungkinan akan menggunakan sistem undian atau beberapa fase.',
+    delay: '500ms',
+  },
+  {
+    question: 'Tim mana saja yang sudah otomatis lolos?',
+    answer: 'Sebagai negara tuan rumah, Kanada, Meksiko, dan Amerika Serikat secara otomatis lolos ke turnamen. Tim lainnya akan lolos melalui kualifikasi konfederasi.',
+    delay: '600ms',
+  },
 ];
 
 // Define the props for the FaqItem component
@@ -39,9 +56,9 @@ const FaqItem: React.FC<FaqItemProps> = ({ item, index, isOpen, onToggle }) => {
   const contentRef = React.useRef<HTMLDivElement>(null);
 
   return (
-    <div 
-      className="glass-container rounded-lg p-4 cursor-pointer faq-item transition-all duration-300 hover:scale-[1.01] animate-scroll"
-      style={{ animationDelay: item.delay }}
+    <ScrollAnimation 
+      animationDelay={item.delay}
+      className="glass-container rounded-lg p-4 cursor-pointer faq-item transition-all duration-300 hover:scale-[1.01]"
       onClick={onToggle}
     >
       <div className="flex justify-between items-center faq-question">
@@ -63,7 +80,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ item, index, isOpen, onToggle }) => {
       >
         <p className="mt-4 text-gray-200">{item.answer}</p>
       </div>
-    </div>
+    </ScrollAnimation>
   );
 };
 
@@ -74,9 +91,27 @@ const Faq = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+
   return (
     <section id="faq" className="py-8 md:py-12">
-      <div className="glass-container p-8 md:p-12 text-center text-white animate-scroll">
+      <Script
+        id="json-ld-schema-faq"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ScrollAnimation className="glass-container p-8 md:p-12 text-center text-white">
         <h2 className="text-4xl md:text-5xl font-bold mb-8">Tanya Jawab (FAQ)</h2>
         <div className="space-y-4 text-left max-w-3xl mx-auto">
           {faqData.map((item, index) => (
@@ -89,7 +124,7 @@ const Faq = () => {
             />
           ))}
         </div>
-      </div>
+      </ScrollAnimation>
     </section>
   );
 };

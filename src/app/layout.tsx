@@ -24,9 +24,6 @@ export const metadata: Metadata = {
   description: "Info World Cup 2026: Situs informasi lengkap jadwal, tim, stadion, dan berita terbaru Piala Dunia 2026.",
   keywords: ['info world cup', 'piala dunia 2026', 'jadwal piala dunia', 'world cup 2026'],
   metadataBase: new URL('https://infoworldcup.wiki'),
-  alternates: {
-    canonical: './',
-  },
   robots: {
     index: true,
     follow: true,
@@ -65,6 +62,9 @@ export const metadata: Metadata = {
     description: 'Info World Cup 2026: Situs informasi lengkap jadwal, tim, stadion, dan berita terbaru Piala Dunia 2026.',
     images: ['https://infoworldcup.wiki/images/info-fifa.webp'], // Gunakan gambar yang sama
   },
+  other: {
+    'mobile-web-app-capable': 'yes',
+  }
 };
 
 export default function RootLayout({

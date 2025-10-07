@@ -1,15 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
+import ScrollAnimation from './ScrollAnimation';
 
 const InfoSection = () => {
   return (
     <section id="info" className="py-8 md:py-12">
-      <div className="glass-container p-8 md:p-12 animate-scroll">
+      <ScrollAnimation className="glass-container p-8 md:p-12">
         <div className="flex flex-col md:flex-row items-center gap-12">
           {/* Image on the left */}
-          <div
-            className="md:w-1/3 w-full animate-scroll"
-            style={{ animationDelay: '100ms' }}
+          <ScrollAnimation
+            animationDelay="100ms"
+            className="md:w-1/3 w-full"
           >
             <Image
               src="/images/info-fifa.webp"
@@ -18,9 +19,9 @@ const InfoSection = () => {
               width={600}
               height={400}
             />
-          </div>
+          </ScrollAnimation>
           {/* Article on the right */}
-          <div className="md:w-2/3 w-full text-left animate-scroll" style={{ animationDelay: '200ms' }}>
+          <ScrollAnimation animationDelay="200ms" className="md:w-2/3 w-full text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Sebuah Era Baru Sepak Bola</h2>
             <p className="text-gray-200 mb-4 leading-relaxed">
               Piala Dunia 2026 menandai babak baru dalam sejarah turnamen, menjadi yang pertama diselenggarakan oleh tiga negara dan menampilkan 48 tim. Ekspansi ini membuka pintu bagi lebih banyak negara untuk bersinar di panggung global, menjanjikan persaingan yang lebih ketat dan beragam.
@@ -28,9 +29,9 @@ const InfoSection = () => {
             <p className="text-gray-200 leading-relaxed">
               SoFi Stadium, sebagai salah satu venue utama, berdiri sebagai simbol kemegahan dan inovasi. Dengan arsitektur futuristik dan fasilitas canggih, stadion ini tidak hanya menjadi tempat pertandingan, tetapi juga destinasi yang akan memberikan pengalaman tak terlupakan bagi para penggemar dari seluruh penjuru dunia.
             </p>
-          </div>
+          </ScrollAnimation>
         </div>
-      </div>
+      </ScrollAnimation>
     </section>
   );
 };

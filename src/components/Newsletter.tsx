@@ -1,9 +1,10 @@
 import React from 'react';
+import ScrollAnimation from './ScrollAnimation';
 
 const NewsletterSection = () => {
   return (
     <section id="newsletter" className="py-8 md:py-12">
-      <div className="glass-container p-8 md:p-12 text-center text-white animate-scroll">
+      <ScrollAnimation className="glass-container p-8 md:p-12 text-center text-white">
         <h2 className="text-4xl md:text-5xl font-bold mb-8">Dapatkan Berita Terbaru</h2>
         <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-gray-200">
           Berlangganan untuk info eksklusif, penjualan tiket, dan pembaruan penting.
@@ -18,7 +19,7 @@ const NewsletterSection = () => {
             Berlangganan
           </button>
         </div>
-      </div>
+      </ScrollAnimation>
     </section>
   );
 };

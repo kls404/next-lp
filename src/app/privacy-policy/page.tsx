@@ -1,53 +1,81 @@
 import React from 'react';
-import GlobalBackground from '../../components/GlobalBackground';
+import type { Metadata } from 'next';
+import Script from 'next/script';
+import LegalPageLayout from '@/components/LegalPageLayout';
+
+export const metadata: Metadata = {
+  title: 'Kebijakan Privasi | Info World Cup 2026',
+  description: 'Pahami bagaimana kami mengumpulkan, menggunakan, dan melindungi data pribadi Anda saat Anda mengunjungi situs informasi Piala Dunia 2026 kami.',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
+  robots: {
+    index: true, // As requested by user
+    follow: true,
+  },
+};
+
+const sections = [
+  { id: 'introduction', title: 'Pendahuluan' },
+  { id: 'information-we-collect', title: 'Informasi yang Kami Kumpulkan' },
+  { id: 'use-of-your-information', title: 'Penggunaan Informasi Anda' },
+  { id: 'contact-us', title: 'Hubungi Kami' },
+];
 
 const PrivacyPolicyPage = () => {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: metadata.title as string,
+    url: `https://infoworldcup.wiki${metadata.alternates?.canonical}`,
+    description: metadata.description as string,
+  };
+
   return (
-    <div className="text-white min-h-screen">
-      <GlobalBackground />
-      <div className="container mx-auto px-4 py-12 md:py-24 relative z-10">
-        <div className="glass-container p-8 md:p-12">
-          <div className="prose prose-invert max-w-4xl mx-auto">
-            <h1>Privacy Policy</h1>
-            <p className="text-gray-400 text-sm">Last updated: October 26, 2025</p>
+    <>
+      <Script
+        id="json-ld-schema-privacy"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <LegalPageLayout title="Kebijakan Privasi" sections={sections}>
+        <p className="text-gray-400 text-sm">Terakhir diperbarui: 26 Oktober 2025</p>
 
-            <h2>Introduction</h2>
-            <p>
-              Welcome to our website. We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
-            </p>
+        <h2 id="introduction">Pendahuluan</h2>
+        <p>
+          Selamat datang di situs kami. Kami berkomitmen untuk melindungi privasi Anda. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, mengungkap, dan menjaga informasi Anda saat Anda mengunjungi situs web kami.
+        </p>
 
-            <h2>Information We Collect</h2>
-            <p>
-              We may collect information about you in a variety of ways. The information we may collect on the Site includes:
-            </p>
-            <ul>
-              <li>
-                <strong>Personal Data:</strong> Personally identifiable information, such as your name, shipping address, email address, and telephone number, and demographic information, such as your age, gender, hometown, and interests, that you voluntarily give to us when you register with the Site or when you choose to participate in various activities related to the Site, such as online chat and message boards.
-              </li>
-              <li>
-                <strong>Derivative Data:</strong> Information our servers automatically collect when you access the Site, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the Site.
-              </li>
-            </ul>
+        <h2 id="information-we-collect">Informasi yang Kami Kumpulkan</h2>
+        <p>
+          Kami dapat mengumpulkan informasi tentang Anda dalam berbagai cara. Informasi yang dapat kami kumpulkan di Situs meliputi:
+        </p>
+        <ul>
+          <li>
+            <strong>Data Pribadi:</strong> Informasi yang dapat diidentifikasi secara pribadi, seperti nama, alamat email, dan nomor telepon Anda, serta informasi demografis, seperti usia, jenis kelamin, dan minat Anda, yang Anda berikan secara sukarela kepada kami saat Anda mendaftar ke Situs atau saat Anda memilih untuk berpartisipasi dalam berbagai aktivitas yang terkait dengan Situs.
+          </li>
+          <li>
+            <strong>Data Turunan:</strong> Informasi yang dikumpulkan server kami secara otomatis saat Anda mengakses Situs, seperti alamat IP, jenis browser, sistem operasi, waktu akses, dan halaman yang telah Anda lihat secara langsung sebelum dan sesudah mengakses Situs.
+          </li>
+        </ul>
 
-            <h2>Use of Your Information</h2>
-            <p>
-              Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site to:
-            </p>
-            <ul>
-              <li>Create and manage your account.</li>
-              <li>Email you regarding your account or order.</li>
-              <li>Fulfill and manage purchases, orders, payments, and other transactions related to the Site.</li>
-              <li>Increase the efficiency and operation of the Site.</li>
-            </ul>
+        <h2 id="use-of-your-information">Penggunaan Informasi Anda</h2>
+        <p>
+          Memiliki informasi yang akurat tentang Anda memungkinkan kami untuk memberi Anda pengalaman yang lancar, efisien, dan disesuaikan. Secara khusus, kami dapat menggunakan informasi yang dikumpulkan tentang Anda melalui Situs untuk:
+        </p>
+        <ul>
+          <li>Membuat dan mengelola akun Anda.</li>
+          <li>Mengirim email kepada Anda mengenai akun atau pesanan Anda.</li>
+          <li>Memenuhi dan mengelola pembelian, pesanan, pembayaran, dan transaksi lain yang terkait dengan Situs.</li>
+          <li>Meningkatkan efisiensi dan pengoperasian Situs.</li>
+        </ul>
 
-            <h2>Contact Us</h2>
-            <p>
-              If you have questions or comments about this Privacy Policy, please contact us at: contact@example.com
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+        <h2 id="contact-us">Hubungi Kami</h2>
+        <p>
+          Jika Anda memiliki pertanyaan atau komentar tentang Kebijakan Privasi ini, silakan hubungi kami di: contact@example.com
+        </p>
+      </LegalPageLayout>
+    </>
   );
 };
 

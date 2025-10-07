@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ScrollAnimation from './ScrollAnimation';
 
 // Define the type for a single recommendation item
 interface RekomendasiItem {
@@ -38,7 +39,7 @@ const StarRating = ({ rating }: { rating: number }) => {
 const RekomendasiSection = ({ recommendationData }: { recommendationData: RekomendasiItem[] }) => {
   return (
     <section id="rekomendasi" className="py-12 md:py-16">
-      <div className="text-center text-white animate-scroll">
+      <ScrollAnimation className="text-center text-white">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Rekomendasi Situs Betting</h2>
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 text-gray-300">
           Daftar situs terpercaya untuk meramaikan pengalaman Piala Dunia 2026 Anda.
@@ -78,7 +79,7 @@ const RekomendasiSection = ({ recommendationData }: { recommendationData: Rekome
           <h4 className="font-bold text-gray-400 mb-2 text-base">PERINGATAN</h4>
           <p>Konten ini ditujukan untuk audiens berusia 18 tahun ke atas. Perjudian dalam bentuk apapun dapat menyebabkan kecanduan dan kerugian finansial. Harap bermain dengan bijak dan bertanggung jawab. Jangan pernah berjudi dengan uang yang tidak bisa Anda relakan kehilangannya.</p>
         </div>
-      </div>
+      </ScrollAnimation>
     </section>
   );
 };

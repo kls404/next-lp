@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ScrollAnimation from './ScrollAnimation';
 
 const HeroSection = () => {
   // Refs for mousemove effects
@@ -79,29 +80,35 @@ const HeroSection = () => {
 
       {/* Main Content */}
       <div ref={contentRef} className="relative z-10 p-6 max-w-4xl mx-auto transition-transform duration-300 ease-out">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white animate-scroll" style={{ animationDelay: '100ms' }}>
-          Piala Dunia 2026: Bersatu dalam Selebrasi Sepak Bola Terbesar
-        </h1>
-        <p className="text-lg md:text-xl mb-8 text-gray-300 animate-scroll" style={{ animationDelay: '200ms' }}>
-          Saksikan format revolusioner, stadion termegah, dan talenta terbaik dunia bersatu dalam turnamen yang akan menulis ulang sejarah.
-        </p>
-        <Link href="/#info" className="bg-white text-gray-900 py-3 px-8 rounded-full font-bold hover:bg-gray-200 transition duration-300 animate-scroll" style={{ animationDelay: '300ms' }}>
-          Lihat Detail Turnamen
-        </Link>
+        <ScrollAnimation animationDelay="100ms">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white">
+            Piala Dunia 2026: Bersatu dalam Selebrasi Sepak Bola Terbesar
+          </h1>
+        </ScrollAnimation>
+        <ScrollAnimation animationDelay="200ms">
+          <p className="text-lg md:text-xl mb-8 text-gray-300">
+            Saksikan format revolusioner, stadion termegah, dan talenta terbaik dunia bersatu dalam turnamen yang akan menulis ulang sejarah.
+          </p>
+        </ScrollAnimation>
+        <ScrollAnimation animationDelay="300ms">
+          <Link href="/#info" className="bg-white text-gray-900 py-3 px-8 rounded-full font-bold hover:bg-gray-200 transition duration-300">
+            Lihat Detail Turnamen
+          </Link>
+        </ScrollAnimation>
       </div>
 
       {/* Stats Section */}
-      <div className="relative z-10 grid grid-cols-3 gap-8 md:gap-16 mt-12 animate-scroll" style={{ animationDelay: '400ms' }}>
+      <ScrollAnimation animationDelay="400ms" className="relative z-10 grid grid-cols-3 gap-8 md:gap-16 mt-12">
         {stats.map((stat) => (
           <div key={stat.label} className="text-center">
             <p className="text-3xl md:text-4xl font-bold text-white">{stat.value}</p>
             <p className="text-sm md:text-base text-gray-400">{stat.label}</p>
           </div>
         ))}
-      </div>
+      </ScrollAnimation>
 
       {/* Countdown Timer - Integrated */}
-      <div className="relative z-10 w-full max-w-2xl mt-12 animate-scroll" style={{ animationDelay: '500ms' }}>
+      <ScrollAnimation animationDelay="500ms" className="relative z-10 w-full max-w-2xl mt-12">
         {!isFinished ? (
           <div className="grid grid-cols-4 gap-4 text-center">
             <div className="glass-container p-4 rounded-lg">
@@ -124,7 +131,7 @@ const HeroSection = () => {
         ) : (
           <div className="text-2xl font-bold p-4 glass-container rounded-lg">Pertandingan Telah Dimulai!</div>
         )}
-      </div>
+      </ScrollAnimation>
     </header>
   );
 };

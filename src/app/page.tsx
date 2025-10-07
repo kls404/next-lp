@@ -4,7 +4,6 @@ import HomePageClient from './HomePageClient'; // Import the new client componen
 
 // SEO Metadata for the Homepage
 export const metadata: Metadata = {
-  title: 'Beranda', // This will become "Beranda | Piala Dunia 2026"
   description: 'Situs informasi utama untuk Piala Dunia 2026. Temukan berita terbaru, hitung mundur, dan informasi penting lainnya mengenai turnamen di Amerika, Meksiko, dan Kanada.',
 };
 

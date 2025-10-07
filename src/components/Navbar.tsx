@@ -51,7 +51,7 @@ const Navbar = () => {
       {/* Main Navbar / Island */}
       <div className={`container mx-auto flex justify-between items-center px-3 py-2 transition-all duration-300 ease-in-out ${isScrolled || isMobileMenuOpen ? 'glass-container rounded-2xl' : 'bg-transparent'}`}>
         <Link href="/">
-          <Image src="/images/logo.webp" alt="Logo Sport Jaya" width={96} height={96} className="h-12 w-auto" />
+          <Image src="/images/logo.webp" alt="Logo Sport Jaya" width={120} height={40} className="h-12 w-auto" />
         </Link>
 
         {/* Desktop Menu */}

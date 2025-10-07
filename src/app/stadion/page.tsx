@@ -21,7 +21,13 @@ const jsonLd = {
       "item": {
         "@type": "StadiumOrArena",
         "name": "MetLife Stadium",
-        "address": "East Rutherford, New Jersey, USA"
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1 MetLife Stadium Dr",
+          "addressLocality": "East Rutherford",
+          "addressRegion": "NJ",
+          "addressCountry": "US"
+        }
       }
     },
     {
@@ -30,7 +36,13 @@ const jsonLd = {
       "item": {
         "@type": "StadiumOrArena",
         "name": "SoFi Stadium",
-        "address": "Inglewood, California, USA"
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1001 S Stadium Dr",
+          "addressLocality": "Inglewood",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
       }
     },
     {
@@ -39,7 +51,13 @@ const jsonLd = {
       "item": {
         "@type": "StadiumOrArena",
         "name": "AT&T Stadium",
-        "address": "Arlington, Texas, USA"
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "One AT&T Way",
+          "addressLocality": "Arlington",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        }
       }
     },
     {
@@ -48,7 +66,14 @@ const jsonLd = {
       "item": {
         "@type": "StadiumOrArena",
         "name": "Stadion Azteca",
-        "address": "Mexico City, Meksiko"
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calzada de Tlalpan 3465",
+          "addressLocality": "Santa Úrsula Coapa",
+          "postalCode": "04650",
+          "addressRegion": "CDMX",
+          "addressCountry": "MX"
+        }
       }
     },
     {
@@ -57,7 +82,13 @@ const jsonLd = {
       "item": {
         "@type": "StadiumOrArena",
         "name": "BC Place",
-        "address": "Vancouver, Kanada"
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "777 Pacific Boulevard",
+          "addressLocality": "Vancouver",
+          "addressRegion": "BC",
+          "addressCountry": "CA"
+        }
       }
     },
     {
@@ -66,7 +97,13 @@ const jsonLd = {
       "item": {
         "@type": "StadiumOrArena",
         "name": "Mercedes-Benz Stadium",
-        "address": "Atlanta, Georgia, USA"
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1 AMB Drive Northwest",
+          "addressLocality": "Atlanta",
+          "addressRegion": "GA",
+          "addressCountry": "US"
+        }
       }
     }
   ]
